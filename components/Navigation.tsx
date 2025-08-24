@@ -38,8 +38,6 @@ export function Navigation() {
     }
   }, []);
 
-
-
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -53,35 +51,33 @@ export function Navigation() {
       <nav
         ref={navRef}
         className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+          'fixed top-0 left-0 right-0 z-50 transition-all duration-500 w-full',
           isScrolled 
             ? 'backdrop-blur-md bg-white/90 border-b border-slate-200/50 shadow-lg' 
             : 'bg-transparent'
         )}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20">
-            {/* Logo */}
+        <div className="w-full max-w-5xl mx-auto px-3 sm:px-4 lg:px-6">
+          <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
             <div 
               ref={logoRef}
-              className="flex items-center space-x-3 cursor-pointer"
+              className="flex items-center space-x-2 cursor-pointer"
               onClick={() => scrollToSection('#home')}
             >
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-                <Droplet className="w-5 h-5 text-white" />
+              <div className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                <Droplet className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-white" />
               </div>
-              <span className="text-2xl lg:text-3xl font-light text-slate-900 tracking-wide">
+              <span className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-light text-slate-900 tracking-wide">
                 Elixir
               </span>
             </div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-8">
-              {navItems.map((item, index) => (
+            <div className="hidden lg:flex items-center space-x-4 xl:space-x-6">
+              {navItems.map((item) => (
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="relative font-medium text-slate-700 hover:text-slate-900 transition-colors duration-300 py-2"
+                  className="relative font-medium text-slate-700 hover:text-slate-900 transition-colors duration-300 py-2 text-sm xl:text-base"
                 >
                   {item.label}
                   <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 hover:w-full" />
@@ -89,29 +85,27 @@ export function Navigation() {
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors"
+              className="lg:hidden p-1.5 sm:p-2 rounded-lg hover:bg-slate-100 transition-colors"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? (
-                <X className="w-6 h-6 text-slate-700" />
+                <X className="w-5 h-5 sm:w-6 sm:h-6 text-slate-700" />
               ) : (
-                <Menu className="w-6 h-6 text-slate-700" />
+                <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-slate-700" />
               )}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {isOpen && (
           <div className="lg:hidden overflow-hidden backdrop-blur-md bg-white/95 border-b border-slate-200/50">
-            <div className="px-4 py-6 space-y-4">
-              {navItems.map((item, index) => (
+            <div className="px-3 py-3 space-y-1">
+              {navItems.map((item) => (
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left py-3 px-4 font-medium text-slate-700 hover:bg-slate-100 rounded-lg transition-colors duration-200"
+                  className="block w-full text-left py-2 px-3 font-medium text-slate-700 hover:bg-slate-100 rounded-lg transition-colors duration-200 text-sm"
                 >
                   {item.label}
                 </button>
@@ -121,7 +115,6 @@ export function Navigation() {
         )}
       </nav>
 
-      {/* Backdrop for mobile menu */}
       {isOpen && (
         <div
           className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm lg:hidden"

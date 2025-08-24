@@ -157,28 +157,28 @@ export function ProductsSection() {
   };
 
   return (
-    <section ref={sectionRef} id="products" className="py-24 lg:py-32 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div ref={headerRef} className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6 tracking-tight">
+    <section ref={sectionRef} id="products" className="py-16 lg:py-24 bg-slate-50 overflow-hidden">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div ref={headerRef} className="text-center mb-12 lg:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-900 mb-4 lg:mb-6 tracking-tight">
             Our Premium
             <br />
             <span className="font-medium text-blue-600">Collection</span>
           </h2>
           
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
             From traditional whole milk to innovative plant-based alternatives, 
             each product is crafted with care and delivered fresh to your door.
           </p>
         </div>
 
-        <div ref={filterRef} className="flex justify-center mb-16">
+        <div ref={filterRef} className="flex justify-center mb-12 lg:mb-16">
           <div className="flex space-x-1 bg-white p-1 rounded-xl shadow-sm border border-slate-200">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                className={`px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-medium transition-all duration-300 text-sm sm:text-base ${
                   activeCategory === category
                     ? 'bg-slate-900 text-white shadow-sm'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -190,7 +190,7 @@ export function ProductsSection() {
           </div>
         </div>
 
-        <div ref={productsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={productsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {filteredProducts.map((product, index) => (
             <ProductCard
               key={product.id}
@@ -204,16 +204,16 @@ export function ProductsSection() {
         </div>
 
         {Object.keys(cart).length > 0 && (
-          <div className="fixed bottom-6 right-6 bg-white p-4 rounded-xl shadow-lg border border-slate-200 z-40">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
-                <ShoppingCart className="w-5 h-5 text-white" />
+          <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 bg-white p-3 sm:p-4 rounded-xl shadow-lg border border-slate-200 z-40">
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-500 rounded-lg flex items-center justify-center">
+                <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </div>
               <div>
-                <p className="font-semibold text-slate-800">
+                <p className="font-semibold text-slate-800 text-sm sm:text-base">
                   {Object.values(cart).reduce((a, b) => a + b, 0)} items
                 </p>
-                <p className="text-sm text-slate-600">
+                <p className="text-xs sm:text-sm text-slate-600">
                   ${Object.entries(cart)
                     .reduce((total, [id, quantity]) => {
                       const product = products.find(p => p.id === parseInt(id));

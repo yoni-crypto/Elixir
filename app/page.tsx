@@ -6,9 +6,10 @@ import { ProductsSection } from '@/components/sections/ProductsSection';
 import { SustainabilitySection } from '@/components/sections/SustainabilitySection';
 import { BlogSection } from '@/components/sections/BlogSection';
 import { ContactSection } from '@/components/sections/ContactSection';
+
 export default function HomePage() {
   return (
-    <div className="relative">
+    <div className="relative w-full overflow-x-hidden">
       <HeroSection />
       <AboutSection />
       <ProductsSection />

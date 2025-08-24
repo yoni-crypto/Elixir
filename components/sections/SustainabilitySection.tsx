@@ -150,25 +150,25 @@ export function SustainabilitySection() {
   };
 
   return (
-    <section ref={sectionRef} id="sustainability" className="py-24 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div ref={headerRef} className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6 tracking-tight">
+    <section ref={sectionRef} id="sustainability" className="py-16 lg:py-24 bg-gradient-to-br from-blue-50 via-white to-slate-50 overflow-hidden">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div ref={headerRef} className="text-center mb-12 lg:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-900 mb-4 lg:mb-6 tracking-tight">
             Sustainable
             <br />
             <span className="font-medium text-blue-600">Future</span>
           </h2>
           
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
             We're committed to environmental stewardship, implementing innovative practices 
             that protect our planet while delivering exceptional products.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div ref={globeRef} className="relative">
-            <div className="relative w-full max-w-md mx-auto">
-              <div className="relative w-80 h-80 mx-auto">
+            <div className="relative w-full max-w-sm sm:max-w-md mx-auto">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-blue-50 to-slate-100 rounded-full shadow-2xl border-4 border-white">
                   <div className="absolute inset-4 bg-gradient-to-br from-blue-200/30 via-blue-100/20 to-slate-200/30 rounded-full">
                     <svg className="absolute inset-0 w-full h-full" viewBox="0 0 300 300">
@@ -184,10 +184,10 @@ export function SustainabilitySection() {
                   </div>
                   
                   <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-blue-200/40 rounded-full animate-pulse"></div>
-                    <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-blue-300/30 rounded-full animate-pulse delay-150"></div>
-                    <div className="absolute bottom-1/4 left-1/2 w-2 h-2 bg-slate-200/50 rounded-full animate-pulse delay-300"></div>
-                    <div className="absolute bottom-1/3 right-1/4 w-3 h-3 bg-blue-100/60 rounded-full animate-pulse delay-500"></div>
+                    <div className="absolute top-1/4 left-1/4 w-2 h-2 sm:w-3 sm:h-3 bg-blue-200/40 rounded-full animate-pulse"></div>
+                    <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-300/30 rounded-full animate-pulse delay-150"></div>
+                    <div className="absolute bottom-1/4 left-1/2 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-slate-200/50 rounded-full animate-pulse delay-300"></div>
+                    <div className="absolute bottom-1/3 right-1/4 w-2 h-2 sm:w-3 sm:h-3 bg-blue-100/60 rounded-full animate-pulse delay-500"></div>
                   </div>
                 </div>
 
@@ -205,27 +205,27 @@ export function SustainabilitySection() {
                     onMouseEnter={() => handleHotspotHover(item.id)}
                     onMouseLeave={() => handleHotspotHover(null)}
                   >
-                    <div className={`relative w-6 h-6 bg-gradient-to-r ${item.color} rounded-full shadow-lg transition-all duration-300 ${
+                    <div className={`relative w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-r ${item.color} rounded-full shadow-lg transition-all duration-300 ${
                       activeHotspot === item.id ? 'scale-125' : hoveredHotspot === item.id ? 'scale-110' : 'scale-100'
                     }`}>
                       <div className="absolute inset-0 bg-white/20 rounded-full animate-ping"></div>
-                      <div className="absolute inset-2 bg-white rounded-full flex items-center justify-center">
-                        <item.icon className="w-3 h-3 text-slate-700" />
+                      <div className="absolute inset-1.5 sm:inset-2 bg-white rounded-full flex items-center justify-center">
+                        <item.icon className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-slate-700" />
                       </div>
                     </div>
 
                     {activeHotspot === item.id && (
-                      <div className="absolute top-8 left-1/2 transform -translate-x-1/2 bg-white rounded-xl shadow-xl p-4 w-64 z-30 border border-slate-200">
-                        <div className="flex items-start space-x-3">
-                          <div className={`w-8 h-8 bg-gradient-to-r ${item.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                            <item.icon className="w-4 h-4 text-white" />
+                      <div className="absolute top-6 sm:top-8 left-1/2 transform -translate-x-1/2 bg-white rounded-xl shadow-xl p-3 sm:p-4 w-56 sm:w-64 z-30 border border-slate-200">
+                        <div className="flex items-start space-x-2 sm:space-x-3">
+                          <div className={`w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r ${item.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
+                            <item.icon className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                           </div>
                           <div>
-                            <h4 className="font-semibold text-slate-900 mb-1">{item.title}</h4>
-                            <p className="text-sm text-slate-600 leading-relaxed">{item.description}</p>
+                            <h4 className="font-semibold text-slate-900 mb-1 text-sm sm:text-base">{item.title}</h4>
+                            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{item.description}</p>
                           </div>
                         </div>
-                        <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white rotate-45 border-l border-t border-slate-200"></div>
+                        <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-3 h-3 sm:w-4 sm:h-4 bg-white rotate-45 border-l border-t border-slate-200"></div>
                       </div>
                     )}
                   </div>
@@ -233,40 +233,40 @@ export function SustainabilitySection() {
               </div>
 
               <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-blue-300/60 rounded-full animate-ping"></div>
-                <div className="absolute bottom-0 right-0 w-3 h-3 bg-slate-300/50 rounded-full animate-pulse"></div>
-                <div className="absolute top-1/2 left-0 w-2 h-2 bg-blue-200/70 rounded-full animate-ping delay-300"></div>
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-300/60 rounded-full animate-ping"></div>
+                <div className="absolute bottom-0 right-0 w-2 h-2 sm:w-3 sm:h-3 bg-slate-300/50 rounded-full animate-pulse"></div>
+                <div className="absolute top-1/2 left-0 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-200/70 rounded-full animate-ping delay-300"></div>
               </div>
             </div>
           </div>
 
           <div ref={contentRef}>
-            <h3 className="text-3xl font-semibold text-slate-900 mb-6">
+            <h3 className="text-2xl sm:text-3xl font-semibold text-slate-900 mb-4 sm:mb-6">
               Click on the globe to explore our sustainability initiatives
             </h3>
             
-            <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 mb-6 sm:mb-8 leading-relaxed">
               Our commitment to sustainability goes beyond reducing our environmental impact. 
               We're actively working to regenerate ecosystems, support local communities, 
               and create a positive legacy for future generations.
             </p>
 
-            <div ref={statsRef} className="grid grid-cols-2 gap-6">
-              <div className="text-center p-6 bg-white rounded-xl shadow-sm border border-slate-200">
-                <div className="text-3xl font-bold text-blue-600 mb-2">100%</div>
-                <div className="text-sm text-slate-600">Carbon Neutral</div>
+            <div ref={statsRef} className="grid grid-cols-2 gap-4 sm:gap-6">
+              <div className="text-center p-4 sm:p-6 bg-white rounded-xl shadow-sm border border-slate-200">
+                <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1 sm:mb-2">100%</div>
+                <div className="text-xs sm:text-sm text-slate-600">Carbon Neutral</div>
               </div>
-              <div className="text-center p-6 bg-white rounded-xl shadow-sm border border-slate-200">
-                <div className="text-3xl font-bold text-blue-600 mb-2">50%</div>
-                <div className="text-sm text-slate-600">Less Water Usage</div>
+              <div className="text-center p-4 sm:p-6 bg-white rounded-xl shadow-sm border border-slate-200">
+                <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1 sm:mb-2">50%</div>
+                <div className="text-xs sm:text-sm text-slate-600">Less Water Usage</div>
               </div>
-              <div className="text-center p-6 bg-white rounded-xl shadow-sm border border-slate-200">
-                <div className="text-3xl font-bold text-blue-600 mb-2">0</div>
-                <div className="text-sm text-slate-600">Waste to Landfill</div>
+              <div className="text-center p-4 sm:p-6 bg-white rounded-xl shadow-sm border border-slate-200">
+                <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1 sm:mb-2">0</div>
+                <div className="text-xs sm:text-sm text-slate-600">Waste to Landfill</div>
               </div>
-              <div className="text-center p-6 bg-white rounded-xl shadow-sm border border-slate-200">
-                <div className="text-3xl font-bold text-blue-600 mb-2">100%</div>
-                <div className="text-sm text-slate-600">Recyclable Packaging</div>
+              <div className="text-center p-4 sm:p-6 bg-white rounded-xl shadow-sm border border-slate-200">
+                <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1 sm:mb-2">100%</div>
+                <div className="text-xs sm:text-sm text-slate-600">Recyclable Packaging</div>
               </div>
             </div>
           </div>

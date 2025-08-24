@@ -235,23 +235,23 @@ export function BlogSection() {
 
   return (
     <>
-      <section ref={sectionRef} id="blog" className="py-24 lg:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div ref={headerRef} className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-light text-slate-900 mb-6 tracking-tight">
+      <section ref={sectionRef} id="blog" className="py-16 lg:py-24 bg-white overflow-hidden">
+        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div ref={headerRef} className="text-center mb-12 lg:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-900 mb-4 lg:mb-6 tracking-tight">
               Insights &
               <br />
               <span className="font-medium text-blue-600">Innovation</span>
             </h2>
             
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
               Stay updated with the latest developments in dairy science, sustainability practices, 
               and innovations shaping the future of our industry.
             </p>
           </div>
 
-          <div ref={featuredRef} className="mb-16">
-            <div className="relative overflow-hidden rounded-2xl bg-slate-900 text-white">
+          <div ref={featuredRef} className="mb-12 lg:mb-16">
+            <div className="relative overflow-hidden rounded-xl lg:rounded-2xl bg-slate-900 text-white">
               <div className="absolute inset-0">
                 <div
                   key={currentIndex}
@@ -261,40 +261,44 @@ export function BlogSection() {
                 <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/60 to-transparent" />
               </div>
               
-              <div className="relative z-10 p-8 lg:p-16 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-[400px]">
+              <div className="relative z-10 p-6 sm:p-8 lg:p-16 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center min-h-[300px] sm:min-h-[350px] lg:min-h-[400px]">
                 <div key={`content-${currentIndex}`}>
-                  <div className="flex items-center space-x-4 mb-4">
-                    <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm font-medium">
+                  <div className="flex flex-wrap items-center gap-3 mb-3 lg:mb-4">
+                    <span className="px-2 py-1 sm:px-3 sm:py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs sm:text-sm font-medium">
                       {visiblePosts[0].category}
                     </span>
-                    <div className="flex items-center space-x-2 text-slate-300 text-sm">
-                      <Clock className="w-4 h-4" />
+                    <div className="flex items-center space-x-1 sm:space-x-2 text-slate-300 text-xs sm:text-sm">
+                      <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
                       <span>{visiblePosts[0].readTime}</span>
                     </div>
                   </div>
                   
-                  <h3 className="text-2xl lg:text-4xl font-semibold mb-4">
+                  <h3 className="text-xl sm:text-2xl lg:text-4xl font-semibold mb-3 lg:mb-4">
                     {visiblePosts[0].title}
                   </h3>
                   
-                  <p className="text-slate-200 text-lg mb-6 leading-relaxed">
+                  <p className="text-sm sm:text-base lg:text-lg text-slate-200 mb-4 lg:mb-6 leading-relaxed">
                     {visiblePosts[0].excerpt}
                   </p>
                   
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <User className="w-4 h-4 text-blue-400" />
-                      <span className="text-slate-300">{visiblePosts[0].author}</span>
-                      <Calendar className="w-4 h-4 text-blue-400 ml-4" />
-                      <span className="text-slate-300">{visiblePosts[0].date}</span>
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm">
+                      <div className="flex items-center space-x-1 sm:space-x-2">
+                        <User className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400" />
+                        <span className="text-slate-300">{visiblePosts[0].author}</span>
+                      </div>
+                      <div className="flex items-center space-x-1 sm:space-x-2">
+                        <Calendar className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400" />
+                        <span className="text-slate-300">{visiblePosts[0].date}</span>
+                      </div>
                     </div>
                     
                     <button 
                       onClick={() => handleReadMore(visiblePosts[0])}
-                      className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 font-medium transition-colors duration-300"
+                      className="flex items-center space-x-1 sm:space-x-2 text-blue-400 hover:text-blue-300 font-medium transition-colors duration-300 text-sm sm:text-base"
                     >
                       <span>Read More</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                     </button>
                   </div>
                 </div>
@@ -304,26 +308,26 @@ export function BlogSection() {
 
           <div 
             ref={controlsRef}
-            className="flex items-center justify-center space-x-6 mb-12"
+            className="flex items-center justify-center space-x-4 sm:space-x-6 mb-8 lg:mb-12"
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
           >
             <button
               onClick={() => setCurrentIndex((prev) => (prev - 1 + blogPosts.length) % blogPosts.length)}
-              className="p-3 bg-slate-100 hover:bg-slate-200 rounded-full transition-colors duration-300"
+              className="p-2 sm:p-3 bg-slate-100 hover:bg-slate-200 rounded-full transition-colors duration-300"
             >
-              <ArrowRight className="w-5 h-5 rotate-180 text-slate-700" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 rotate-180 text-slate-700" />
             </button>
             
-            <div className="flex space-x-3">
+            <div className="flex space-x-2 sm:space-x-3">
               {blogPosts.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`h-3 rounded-full transition-all duration-300 ${
+                  className={`h-2 sm:h-3 rounded-full transition-all duration-300 ${
                     index === currentIndex 
-                      ? 'bg-blue-500 w-8' 
-                      : 'bg-slate-300 hover:bg-slate-400 w-3'
+                      ? 'bg-blue-500 w-6 sm:w-8' 
+                      : 'bg-slate-300 hover:bg-slate-400 w-2 sm:w-3'
                   }`}
                 />
               ))}
@@ -331,62 +335,62 @@ export function BlogSection() {
             
             <button
               onClick={() => setCurrentIndex((prev) => (prev + 1) % blogPosts.length)}
-              className="p-3 bg-slate-100 hover:bg-slate-200 rounded-full transition-colors duration-300"
+              className="p-2 sm:p-3 bg-slate-100 hover:bg-slate-200 rounded-full transition-colors duration-300"
             >
-              <ArrowRight className="w-5 h-5 text-slate-700" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-slate-700" />
             </button>
           </div>
 
-          <div ref={secondaryRef} className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {visiblePosts.slice(1, 3).map((post, index) => (
+          <div ref={secondaryRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {visiblePosts.slice(1, 3).map((post) => (
               <article
                 key={`secondary-${post.id}`}
-                className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-200"
+                className="group bg-white rounded-lg lg:rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-200"
               >
-                <div className="relative overflow-hidden h-48">
+                <div className="relative overflow-hidden h-40 sm:h-48">
                   <div
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-500 group-hover:scale-105"
                     style={{ backgroundImage: `url(${post.image})` }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-white/95 backdrop-blur-sm text-slate-800 rounded-full text-sm font-medium">
+                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
+                    <span className="px-2 py-1 sm:px-3 sm:py-1 bg-white/95 backdrop-blur-sm text-slate-800 rounded-full text-xs sm:text-sm font-medium">
                       {post.category}
                     </span>
                   </div>
                 </div>
                 
-                <div className="p-6">
-                  <div className="flex items-center space-x-4 mb-3 text-sm text-slate-600">
+                <div className="p-4 sm:p-6">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-2 sm:mb-3 text-xs sm:text-sm text-slate-600">
                     <div className="flex items-center space-x-1">
-                      <User className="w-4 h-4" />
+                      <User className="w-3 h-3 sm:w-4 sm:h-4" />
                       <span>{post.author}</span>
                     </div>
                     <div className="flex items-center space-x-1">
-                      <Calendar className="w-4 h-4" />
+                      <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
                       <span>{post.date}</span>
                     </div>
                     <div className="flex items-center space-x-1">
-                      <Clock className="w-4 h-4" />
+                      <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
                       <span>{post.readTime}</span>
                     </div>
                   </div>
                   
-                  <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                  <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-2 sm:mb-3 group-hover:text-blue-600 transition-colors duration-300">
                     {post.title}
                   </h3>
                   
-                  <p className="text-slate-600 mb-4 line-clamp-3">
+                  <p className="text-sm sm:text-base text-slate-600 mb-3 sm:mb-4 line-clamp-3">
                     {post.excerpt}
                   </p>
                   
                   <button 
                     onClick={() => handleReadMore(post)}
-                    className="flex items-center space-x-2 text-blue-600 hover:text-blue-500 font-medium transition-colors duration-300"
+                    className="flex items-center space-x-1 sm:space-x-2 text-blue-600 hover:text-blue-500 font-medium transition-colors duration-300 text-sm sm:text-base"
                   >
                     <span>Read Article</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                   </button>
                 </div>
               </article>
@@ -399,44 +403,44 @@ export function BlogSection() {
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div 
             ref={modalRef}
-            className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+            className="bg-white rounded-lg lg:rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
           >
-            <div className="relative p-8 border-b border-slate-200">
+            <div className="relative p-4 sm:p-6 lg:p-8 border-b border-slate-200">
               <button
                 onClick={closeModal}
-                className="absolute top-6 right-6 p-2 hover:bg-slate-100 rounded-full transition-colors duration-300"
+                className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 hover:bg-slate-100 rounded-full transition-colors duration-300"
               >
-                <X className="w-5 h-5 text-slate-600" />
+                <X className="w-4 h-4 sm:w-5 sm:h-5 text-slate-600" />
               </button>
               
-              <div className="flex items-center space-x-4 mb-4">
-                <span className="px-3 py-1 bg-blue-500/10 text-blue-600 rounded-full text-sm font-medium">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                <span className="px-2 py-1 sm:px-3 sm:py-1 bg-blue-500/10 text-blue-600 rounded-full text-xs sm:text-sm font-medium">
                   {selectedPost.category}
                 </span>
-                <div className="flex items-center space-x-2 text-slate-500 text-sm">
-                  <Clock className="w-4 h-4" />
+                <div className="flex items-center space-x-1 sm:space-x-2 text-slate-500 text-xs sm:text-sm">
+                  <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
                   <span>{selectedPost.readTime}</span>
                 </div>
               </div>
               
-              <h2 className="text-3xl lg:text-4xl font-semibold text-slate-900 mb-4">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-900 mb-3 sm:mb-4">
                 {selectedPost.title}
               </h2>
               
-              <div className="flex items-center space-x-4 text-slate-600">
-                <div className="flex items-center space-x-2">
-                  <User className="w-4 h-4" />
+              <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-slate-600 text-xs sm:text-sm">
+                <div className="flex items-center space-x-1 sm:space-x-2">
+                  <User className="w-3 h-3 sm:w-4 sm:h-4" />
                   <span>{selectedPost.author}</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <Calendar className="w-4 h-4" />
+                <div className="flex items-center space-x-1 sm:space-x-2">
+                  <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
                   <span>{selectedPost.date}</span>
                 </div>
               </div>
             </div>
             
-            <div className="p-8">
-              <div className="prose prose-lg max-w-none">
+            <div className="p-4 sm:p-6 lg:p-8">
+              <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
                 <p className="text-slate-600 leading-relaxed mb-6">
                   {selectedPost.content}
                 </p>
